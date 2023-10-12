@@ -121,6 +121,7 @@ public class Arrays {
         //while loop bc this keeps going until user enters -1
         int index = s.nextInt();
         while (index != -1) {
+            //validate input index
             if (index < -1 || index >= numItems)
                 System.out.println("invalid, try again");
             else
@@ -131,7 +132,6 @@ public class Arrays {
 
         }
 
-        //if you finish - validate input index
 
     }
 }
