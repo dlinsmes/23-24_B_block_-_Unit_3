@@ -95,6 +95,45 @@ public class ArrayPractice {
         }
         System.out.println();
 
+        //sorting algorithm - selection sort
+        //moving from left to right, build the sorted section on the left
+        //by finding the smallest values in the unsorted section (on right).
+        //when the smallest value is found, swap it into position at the
+        //next place in the sorted section
+
+        //i is the index that we want to swap the next smallest value to
+        for (int i = 0; i < nums.length; i++) {
+
+            //track the index of the next smallest value that coems after
+            //position i
+            int nextSmallestI = i;
+
+            //start AFTER the current i value bc everything before is
+            //guaranteed to be smaller (and already sorted)
+            for (int j = i+1; j < nums.length; j++) {
+
+                //check if the value at position j is smaller than the
+                //value at position nextSmallestI. If so, update nextSmallestI
+                if(nums[j] < nums[nextSmallestI]) {
+                    nextSmallestI = j;
+                }
+            }
+            //swap AFTER the inner loop to move the smallest value into position i
+            int swap = nums[i];
+            nums[i] = nums[nextSmallestI];
+            nums[nextSmallestI] = swap;
+
+            //print the progress after each swap
+            for (int n: nums)
+                System.out.print(n + " ");
+            System.out.println();
+
+        }
+
+        //know the concept and overview of the algorithm
+        //-don't need to memorize the code
+        //-be able to recognize what the code is doing if you see it
+
 
 
 
