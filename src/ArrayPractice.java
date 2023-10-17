@@ -135,7 +135,5 @@ public class ArrayPractice {
         //-be able to recognize what the code is doing if you see it
 
 
-
-
     }
 }
