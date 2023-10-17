@@ -104,7 +104,7 @@ public class ArrayPractice {
         //i is the index that we want to swap the next smallest value to
         for (int i = 0; i < nums.length; i++) {
 
-            //track the index of the next smallest value that coems after
+            //track the index of the next smallest value that comes after
             //position i
             int nextSmallestI = i;
 
