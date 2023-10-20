@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CardGame {
 
     public static void main(String [] args) {
@@ -99,12 +101,74 @@ public class CardGame {
         int top = 0;
 
         //draw 7 cards from deck and add to hand
+        for (int i = 0; i < 7; i++) {
+            hand[i] = deck [top];
+            top++;
+        }
+
+        System.out.println();
+        Scanner s = new Scanner(System.in);
+
 
         //while no 4 of kind and top < 52:
+        boolean fourOfKind = false;
+
+        while (fourOfKind == false && top < 52) {
+
+            //print the hand
+            System.out.println("your hand:");
+
+            //print cards in hand
+            for (int i = 0; i < 7; i++) {
+                int cardValue = hand[i];
+                String rank = ranks[cardValue % 13];
+                String suit = suits[cardValue / 13];
+                System.out.println(i + " is the " + rank + " of " + suit);
+            }
+
+            //ask for a hand index of card to replace
+            System.out.println("what card index do you want to replace?");
+            int index = s.nextInt();
+
+            //draw a new card from the deck for that hand index
+            int newCard = deck[top];
+            top++;
+            hand[index] = newCard;
+
+            //check for 4 of kind in the hand
+            for (int i = 0; i < 7; i++) {
+                int cardRankI = hand[i] % 13;
+
+                int sameRankCount = 0;
+
+                //check the ranks of all other cards in the hand
+                //to see if they're the same as the rank of card i
+                for (int j = i; j < 7; j++) {
+                    int cardRankJ = hand[j] % 13;
+                    if (cardRankJ == cardRankI) {
+                        //count how many of the same card are in the hand
+                        sameRankCount++;
+                    }
+                }
+
+                if (sameRankCount == 4) {
+                    fourOfKind = true;
+                }
+
+            }
+
+        }
+
         //print the hand
-        //ask for a hand index of card to replace
-        //draw a new card from the deck for that hand index
-        //check for 4 of kind
+        System.out.println("your hand:");
+
+        //print cards in hand
+        for (int i = 0; i < 7; i++) {
+            int cardValue = hand[i];
+            String rank = ranks[cardValue % 13];
+            String suit = suits[cardValue / 13];
+            System.out.println(i + " is the " + rank + " of " + suit);
+        }
 
     }
 
